@@ -2,6 +2,13 @@
 
 Wrapper around Queue and SizedQueue adding a `#close` method.
 
+Closed queues allow `#pop` until the queue is drained, then forever return nil
+or raise StopIteration.  Pushes to a closed queue also raise an exception.
+
+Ruby 2.3 is expected to support a native `#close` method which works similarly:
+
+  https://bugs.ruby-lang.org/issues/10600
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,13 +27,15 @@ Or install it yourself as:
 
 ## Usage
 
-    queue = CloseableQueue.new
-    queue.push(an_object)
-    queue.pop # => an_object
-    queue.close
-    queue.pop # => nil
-    queue.close(true)
-    queue.pop # => CloseableQueue::ClosedQueue (is_a? StopIteration)
+```ruby
+  queue = CloseableQueue.new
+  queue.push(an_object)
+  queue.pop # => an_object
+  queue.close
+  queue.pop # => nil
+  queue.close(true)
+  queue.pop # => CloseableQueue::ClosedQueue (is_a? StopIteration)
+```
 
 ## Development
 
