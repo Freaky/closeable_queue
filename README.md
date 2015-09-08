@@ -28,13 +28,13 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  queue = CloseableQueue.new
-  queue.push(an_object)
-  queue.pop # => an_object
-  queue.close
-  queue.pop # => nil
-  queue.close(true)
-  queue.pop # => CloseableQueue::ClosedQueue (is_a? StopIteration)
+queue = CloseableQueue.new
+queue.push(an_object) # => queue
+queue.pop             # => an_object
+queue.close
+queue.pop             # => nil
+queue.close(true)
+queue.pop             # => CloseableQueue::ClosedQueue (is_a? StopIteration)
 ```
 
 ## Development
