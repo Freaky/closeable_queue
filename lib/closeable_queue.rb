@@ -73,6 +73,7 @@ class CloseableQueue
 
 		@queue.push(item)
 		wakeup
+		self
 	end
 
 	[:enq, :<<].each { |name| alias_method name, :push }
@@ -101,6 +102,7 @@ class CloseableQueue
 	def close(raise_exception = false)
 		@raise_exception.make_true if raise_exception
 		@mutex.synchronize { @waiting.each(&:wakeup) } if @closed.make_true
+		self
 	end
 
 	private
@@ -125,4 +127,3 @@ class CloseableQueue
 end
 
 ClosableQueue = CloseableQueue
-
