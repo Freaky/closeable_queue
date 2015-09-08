@@ -4,9 +4,9 @@ require "bundler/setup"
 require "closeable_queue"
 
 begin
-	require 'pry'
-	Pry.start
+  require 'pry'
+  Pry.start
 rescue LoadError
-	require "irb"
-	IRB.start
+  require "irb"
+  IRB.start
 end
