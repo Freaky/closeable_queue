@@ -44,7 +44,7 @@ class CloseableQueue
   end
 
   def inspect
-    "<#{name} size=#{length} closed=#{@closed.true?}>"
+    "<#{name} size=#{length} closed=#{closed?} waiting=#{num_waiting}>"
   end
 
   # Take the first element off the queue.
