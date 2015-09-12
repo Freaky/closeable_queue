@@ -34,7 +34,7 @@ queue.pop             # => an_object
 queue.close
 queue.pop             # => nil
 queue.close(true)
-queue.pop             # => CloseableQueue::ClosedQueue (is_a? StopIteration)
+queue.pop             # => raises CloseableQueue::ClosedQueue (is_a? StopIteration)
 ```
 
 ## Development
@@ -45,5 +45,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/closeable_queue
+Bug reports and pull requests are welcome on GitHub at https://github.com/Freaky/closeable_queue
 
