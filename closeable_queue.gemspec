@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = CloseableQueue::VERSION
   spec.authors       = ["Thomas Hurst"]
   spec.email         = ["tom@hur.st"]
+  spec.license       = "MIT"
 
   spec.summary       = %q{Thread-safe queues with safer shutdown semantics}
   spec.description   = %q{Adds a #close method to the standard library Queue and SizedQueue to close down consumers}
